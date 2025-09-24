@@ -30,27 +30,27 @@ const pages = {
   children: [
     {
       id: 'sample-page',
-      title: 'Sample Page',
+      title: 'Publicaciones',
       type: 'item',
       url: '/sample-page',
       icon: icons.ChromeReaderModeOutlinedIcon
     },
     {
       id: 'auth',
-      title: 'Authentication',
+      title: 'Autenticacion',
       type: 'collapse',
       icon: icons.SecurityOutlinedIcon,
       children: [
         {
           id: 'login-1',
-          title: 'login',
+          title: 'Login',
           type: 'item',
           url: '/pages/auth/login',
           target: '_blank'
         },
         {
           id: 'register',
-          title: 'register',
+          title: 'Registrarse',
           type: 'item',
           url: '/pages/auth/register',
           target: '_blank'

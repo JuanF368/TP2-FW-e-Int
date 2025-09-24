@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 // material-ui
 import Typography from '@mui/material/Typography';
 
@@ -7,14 +8,34 @@ import MainCard from 'components/cards/MainCard';
 // ==============================|| SAMPLE PAGE ||============================== //
 
 export default function SamplePage() {
+  const [publicaciones, setPublicaciones] = useState([]); 
+
+  useEffect(() =>{
+    const buscarPublicaciones = async () =>{
+      try{
+        const res = await fetch('http://localhost:1337/api/publicacions'); 
+        const json = await res.json(); 
+        setPublicaciones(json.data); 
+      } catch(error){
+        console.log("Error al obtener las publicaciones: ", error );
+      }
+    }; 
+    buscarPublicaciones();
+  }, []);
+
+
   return (
-    <MainCard title="Sample Page">
-      <Typography variant="body2">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiatnulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-        culpa qui officia deserunt mollitanim id est laborum.
-      </Typography>
+    <MainCard title="Publicaciones">
+      {publicaciones.map((publi)=>{
+        return (
+          <div key={publi.id} style={{marginBottom:'1.5rem'}}> 
+            <Typography variant='h6'>{publi.titulo}</Typography>
+            <Typography variant='subtitle2' color='text.secondary'>{publi.autor} - {new Date(publi.createdAt).toLocaleDateString()}</Typography>
+            <Typography variant='body1' sx={{ marginTop: '0.5rem'}}>{publi.contenido}</Typography>
+            <hr style={{ marginTop: '1rem', borderColor: '#ddd' }} />
+          </div> 
+        )
+      })}
     </MainCard>
   );
 }
