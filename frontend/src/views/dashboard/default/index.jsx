@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 // material-ui
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
@@ -20,11 +21,47 @@ import { trafficSourceData } from './data/traffic-source-card-data';
 // ==============================|| DASHBOARD DEFAULT ||============================== //
 
 export default function Default() {
-  return (
-    <Grid container spacing={GRID_SPACING}>
+  const [facus, setFacus] = useState([]);
+
+  const getFacultades =async () => {
+    try{
+      const facuResult = await fetch(
+        'http://localhost:1337/api/facultades'
+      );
+
+      const faculs = await facuResult.json();
+      
+      const top4 = faculs.data.sort((a, b) => parseInt(b.puntos) - parseInt(a.puntos)).slice(0, 4);
+      //aca use el parseint porque devuelve los puntos como strings el strapi
+
+      setFacus(top4);
+    }catch(err){
+      console.log(`ERROR DESDE CONSOLA: ${err}`)
+    }
+  };
+
+  useEffect(() => {
+    getFacultades();
+  }, []);
+
+  /*
+  Estructura anterior del reportCardData por las dudas 
       {reportCardData.map((data, index) => (
         <Grid key={index} size={{ xs: 12, sm: 6, lg: 3 }}>
           <ReportCard {...data} />
+        </Grid>
+      ))}
+  */
+  return (
+    <Grid container spacing={GRID_SPACING}>
+      {facus.map((facu, index) => (
+        <Grid key={facu.id} size ={{ xs:12, sm:6, lg:3}}>
+          <ReportCard
+            counter = {facu.siglas}
+            title = {facu.nombre}
+            color="primary.main"
+            footerData = {facu.puntos}
+          />
         </Grid>
       ))}
       <Grid size={{ xs: 12, sm: 6, lg: 4 }}>
