@@ -7,6 +7,7 @@ import MainLayout from 'layouts/MainLayout';
 // pages
 const DashboardDefault = Loadable(lazy(() => import('views/dashboard/default')));
 const SamplePage = Loadable(lazy(() => import('views/pages/SamplePage')));
+const AgregarPublicacion = Loadable(lazy(() => import('views/pages/AgregarPublicacion')));
 
 // utils
 const UtilsTypography = Loadable(lazy(() => import('views/components/Typography')));
@@ -28,6 +29,10 @@ const MainRoutes = {
     {
       path: '/sample-page',
       element: <SamplePage />
+    },
+    {
+      path: '/agregar-publicacion',
+      element: <AgregarPublicacion />
     },
     {
       path: 'components',

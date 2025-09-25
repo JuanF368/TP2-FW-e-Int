@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 // material-ui
 import Typography from '@mui/material/Typography';
-
+import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
 // project imports
 import MainCard from 'components/cards/MainCard';
 
@@ -9,6 +10,7 @@ import MainCard from 'components/cards/MainCard';
 
 export default function SamplePage() {
   const [publicaciones, setPublicaciones] = useState([]); 
+  const navigate = useNavigate();
 
   useEffect(() =>{
     const buscarPublicaciones = async () =>{
@@ -36,6 +38,7 @@ export default function SamplePage() {
           </div> 
         )
       })}
+      <Button variant="contained" onClick={() => navigate('/agregar-publicacion')}>Agregar Publicacion</Button>
     </MainCard>
   );
 }
