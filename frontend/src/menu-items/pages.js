@@ -29,6 +29,13 @@ const pages = {
   icon: icons.NavigationOutlinedIcon,
   children: [
     {
+      id: 'facultades',
+      title: 'Facultades',
+      type: 'item',
+      url: '/facultades',
+      icon: icons.ChromeReaderModeOutlinedIcon
+    },
+    {
       id: 'sample-page',
       title: 'Publicaciones',
       type: 'item',
