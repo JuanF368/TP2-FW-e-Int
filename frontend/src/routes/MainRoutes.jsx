@@ -9,6 +9,8 @@ const DashboardDefault = Loadable(lazy(() => import('views/dashboard/default')))
 const SamplePage = Loadable(lazy(() => import('views/pages/SamplePage')));
 const AgregarPublicacion = Loadable(lazy(() => import('views/pages/AgregarPublicacion')));
 const Facultades = Loadable(lazy(() => import('views/pages/Facultades')));
+const Disciplinas = Loadable(lazy(() => import('views/pages/Disciplinas')));
+const AgregarDisciplina = Loadable(lazy(() => import('views/pages/AgregarDisciplina')));
 
 // utils
 const UtilsTypography = Loadable(lazy(() => import('views/components/Typography')));
@@ -38,6 +40,14 @@ const MainRoutes = {
     {
       path: '/facultades',
       element: <Facultades/>
+    },
+    {
+      path: '/disciplinas',
+      element: <Disciplinas/>
+    },
+    {
+      path: '/agregar-disciplina',
+      element: <AgregarDisciplina />
     },
     {
       path: 'components',

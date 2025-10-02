@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "disciplinas",
+  "info": {
+    "singularName": "disciplina",
+    "pluralName": "disciplinas",
+    "displayName": "Disciplina"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "reglamento": {
+      "type": "text"
+    }
+  }
+}

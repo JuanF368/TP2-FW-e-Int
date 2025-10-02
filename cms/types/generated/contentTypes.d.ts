@@ -373,6 +373,35 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDisciplinaDisciplina extends Struct.CollectionTypeSchema {
+  collectionName: 'disciplinas';
+  info: {
+    displayName: 'Disciplina';
+    pluralName: 'disciplinas';
+    singularName: 'disciplina';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::disciplina.disciplina'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    reglamento: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFacultadFacultad extends Struct.CollectionTypeSchema {
   collectionName: 'facultades';
   info: {
@@ -947,6 +976,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::disciplina.disciplina': ApiDisciplinaDisciplina;
       'api::facultad.facultad': ApiFacultadFacultad;
       'api::publicacion.publicacion': ApiPublicacionPublicacion;
       'plugin::content-releases.release': PluginContentReleasesRelease;

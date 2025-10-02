@@ -7,6 +7,8 @@ import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlin
 import ErrorOutlineRoundedIcon from '@mui/icons-material/ErrorOutlineRounded';
 import HourglassEmptyRoundedIcon from '@mui/icons-material/HourglassEmptyRounded';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import SchoolIcon from '@mui/icons-material/School';
+import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 
 const icons = {
   NavigationOutlinedIcon,
@@ -16,7 +18,9 @@ const icons = {
   MonetizationOnOutlinedIcon,
   ErrorOutlineRoundedIcon,
   HourglassEmptyRoundedIcon,
-  HelpOutlineOutlinedIcon
+  HelpOutlineOutlinedIcon,
+  SchoolIcon,
+  SportsSoccerIcon
 };
 
 // ==============================|| MENU ITEMS - PAGES ||============================== //
@@ -33,7 +37,7 @@ const pages = {
       title: 'Facultades',
       type: 'item',
       url: '/facultades',
-      icon: icons.ChromeReaderModeOutlinedIcon
+      icon: icons.SchoolIcon
     },
     {
       id: 'sample-page',
@@ -41,6 +45,13 @@ const pages = {
       type: 'item',
       url: '/sample-page',
       icon: icons.ChromeReaderModeOutlinedIcon
+    },
+    {
+      id: 'disciplinas',
+      title: 'Disciplinas',
+      type: 'item',
+      url: '/disciplinas',
+      icon: icons.SportsSoccerIcon
     },
     {
       id: 'auth',
