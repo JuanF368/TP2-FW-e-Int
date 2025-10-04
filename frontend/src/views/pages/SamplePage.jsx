@@ -11,7 +11,7 @@ import MainCard from 'components/cards/MainCard';
 export default function SamplePage() {
   const [publicaciones, setPublicaciones] = useState([]); 
   const navigate = useNavigate();
-
+  const user = JSON.parse(localStorage.getItem('user'));
   useEffect(() =>{
     const buscarPublicaciones = async () =>{
       try{
@@ -32,13 +32,15 @@ export default function SamplePage() {
         return (
           <div key={publi.id} style={{marginBottom:'1.5rem'}}> 
             <Typography variant='h6'>{publi.titulo}</Typography>
-            <Typography variant='subtitle2' color='text.secondary'>{publi.autor} - {new Date(publi.createdAt).toLocaleDateString()}</Typography>
+            <Typography variant='subtitle2' color='text.secondary'>{publi.autor} - {new Date(publi.fecha).toLocaleDateString()}</Typography>
             <Typography variant='body1' sx={{ marginTop: '0.5rem'}}>{publi.contenido}</Typography>
             <hr style={{ marginTop: '1rem', borderColor: '#ddd' }} />
           </div> 
         )
       })}
+      {user && (
       <Button variant="contained" onClick={() => navigate('/agregar-publicacion')}>Agregar Publicacion</Button>
+      )}
     </MainCard>
   );
 }

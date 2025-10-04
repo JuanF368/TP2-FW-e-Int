@@ -8,16 +8,16 @@ export const salesLineCardData = {
   chartData: salesLineChart,
   footerData: [
     {
-      value: '$4230',
-      label: 'Total Revenue'
+      value: '45',
+      label: 'Total de partidos'
     },
     {
-      value: '321',
-      label: 'Today Sales'
+      value: '12',
+      label: 'Partidos de hoy'
     }
   ],
-  title: 'Sales Per Day',
-  percentage: '3%',
+  title: 'Partidos por dia',
+  percentage: '15%',
   icon: TrendingDownIcon,
   bgColor: 'primary.main'
 };

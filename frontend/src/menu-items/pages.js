@@ -9,6 +9,7 @@ import HourglassEmptyRoundedIcon from '@mui/icons-material/HourglassEmptyRounded
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import SchoolIcon from '@mui/icons-material/School';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
+import { isLogged } from '../utils/auth';
 
 const icons = {
   NavigationOutlinedIcon,
@@ -25,8 +26,9 @@ const icons = {
 
 // ==============================|| MENU ITEMS - PAGES ||============================== //
 
-const pages = {
-  id: 'pages',
+const pages = () => {
+  return {
+    id: 'pages',
   title: 'pages',
   caption: 'prebuild-pages',
   type: 'group',
@@ -53,6 +55,8 @@ const pages = {
       url: '/disciplinas',
       icon: icons.SportsSoccerIcon
     },
+    ...(!isLogged()
+  ?[
     {
       id: 'auth',
       title: 'Autenticacion',
@@ -74,7 +78,9 @@ const pages = {
           target: '_blank'
         }
       ]
-    },
+    }
+  ]
+:[]),
     {
       id: 'documentation',
       title: 'Documentation',
@@ -89,6 +95,8 @@ const pages = {
       target: '_blank'
     }
   ]
+  }
+  
 };
 
 export default pages;

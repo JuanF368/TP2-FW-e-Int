@@ -47,16 +47,6 @@ export default function MainDrawer({ window }) {
       >
         <DrawerContent />
       </Drawer>
-      <Button
-        variant="contained"
-        color="error"
-        startIcon={<ShoppingCart />}
-        sx={{ zIndex: 1199, position: 'fixed', bottom: 50, right: 30 }}
-        href="https://codedthemes.com/item/materially-reactjs-admin-dashboard/"
-        target="_blank"
-      >
-        Buy Now
-      </Button>
     </Box>
   );
 }

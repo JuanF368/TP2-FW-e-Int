@@ -2,11 +2,11 @@
 import { revenueChartData } from '../chart-data/revenue-chart-data';
 
 export const revenueCardData = {
-  title: 'Total Revenue',
+  title: 'Finalistas por facultad',
   chartData: revenueChartData,
   bottomData: [
-    { label: 'Youtube', value: '+16.85', color: 'primary.main' },
-    { label: 'Facebook', value: '+45.36', color: 'success.main' },
-    { label: 'Twitter', value: '-50.69', color: 'warning.main' }
+    { label: 'Centro de Bariloche', value: '45', color: 'primary.main' },
+    { label: 'Ingenieria', value: '35', color: 'success.main' },
+    { label: 'Informatica', value: '20', color: 'warning.main' }
   ]
 };

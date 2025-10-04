@@ -1,13 +1,13 @@
 export const smallFlatCardData = [
   {
-    value: '-0.99',
-    label: 'REALTY',
+    value: '-5',
+    label: 'FAHU',
     color: 'error.main',
     type: 'dashboard'
   },
   {
-    value: '-7.66',
-    label: 'INFRA',
+    value: '+12',
+    label: 'FAIN',
     color: 'success.main',
     type: 'dashboard'
   }

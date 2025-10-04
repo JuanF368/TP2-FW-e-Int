@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-
+import axios from 'axios'; 
+import { useNavigate } from 'react-router-dom';
 // material-ui
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
@@ -32,11 +33,33 @@ export default function AuthLogin({ inputSx }) {
   // Initialize react-hook-form
   const {
     register,
+    handleSubmit,
     formState: { errors }
   } = useForm();
+const navigate = useNavigate();
+
+const onSubmit = async (data) => {
+  try {
+    const response = await axios.post('http://localhost:1337/api/auth/local', {
+      identifier: data.email,
+      password: data.password
+    });
+
+    const { jwt, user } = response.data;
+    localStorage.setItem('token', jwt);
+    localStorage.setItem('user', JSON.stringify(user));
+    navigate('/'); 
+    setTimeout(() => window.location.reload(), 100);
+    
+  } catch (error) {
+    console.error('Error al iniciar sesion:', error);
+    alert('Credenciales incorrectas o error de conexion.');
+  }
+};
+
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Stack sx={{ gap: 3 }}>
         <Box>
           <TextField

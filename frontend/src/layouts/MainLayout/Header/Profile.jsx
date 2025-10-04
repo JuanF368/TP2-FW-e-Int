@@ -25,14 +25,6 @@ import MeetingRoomTwoToneIcon from '@mui/icons-material/MeetingRoomTwoTone';
 import PersonTwoToneIcon from '@mui/icons-material/PersonTwoTone';
 import SettingsTwoToneIcon from '@mui/icons-material/SettingsTwoTone';
 
-const menuItems = [
-  { icon: <SettingsTwoToneIcon />, label: 'Settings' },
-  { icon: <PersonTwoToneIcon />, label: 'Profile' },
-  { icon: <DraftsTwoToneIcon />, label: 'My Messages' },
-  { icon: <LockOpenTwoTone />, label: 'Lock Screen' },
-  { icon: <MeetingRoomTwoToneIcon />, label: 'Logout' }
-];
-
 // ==============================|| PROFILE ||============================== //
 
 export default function Profile() {
@@ -41,6 +33,21 @@ export default function Profile() {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
+
+   const user = JSON.parse(localStorage.getItem('user'));
+
+const menuItems = [
+  { icon: <SettingsTwoToneIcon />, label: 'Settings' },
+  { icon: <PersonTwoToneIcon />, label: 'Profile' },
+  { icon: <DraftsTwoToneIcon />, label: 'My Messages' },
+  { icon: <LockOpenTwoTone />, label: 'Lock Screen' },
+  { icon: <MeetingRoomTwoToneIcon />, label: 'Logout' , action: () =>{
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    navigate('/');
+    setTimeout(() => window.location.reload(), 100);
+  }}
+];
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -66,6 +73,7 @@ export default function Profile() {
 
   const canBeOpen = open && Boolean(anchorEl);
   const id = canBeOpen ? 'profile-popper' : undefined;
+  if (!user) return null;
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>

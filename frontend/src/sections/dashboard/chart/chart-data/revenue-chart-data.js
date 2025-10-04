@@ -7,7 +7,7 @@ export const revenueChartData = {
       min: 0,
       max: 100
     },
-    labels: ['YouTube', 'Facebook', 'Twitter'],
+    labels: ['Centro de Bariloche', 'Ingenieria', 'Informatica'],
     legend: {
       show: true,
       position: 'bottom',
