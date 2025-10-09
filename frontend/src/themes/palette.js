@@ -8,7 +8,7 @@ export default function palette(mode) {
     primary: {
       lighter: '#cbe2ff',
       light: '#4f8ef5',
-      main: '#3366ff',
+      main: '#243E73',
       dark: '#0043a9',
       darker: '#002d75',
       100: '#4c6fff'

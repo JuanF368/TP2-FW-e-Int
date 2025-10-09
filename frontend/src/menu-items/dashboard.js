@@ -6,7 +6,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 const dashboard = {
   id: 'dashboard',
-  title: 'materially',
+  title: 'Interfacultades',
   caption: 'Dashboard',
   icon: NavigationOutlinedIcon,
   type: 'group',
